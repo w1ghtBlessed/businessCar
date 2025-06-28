@@ -1,0 +1,6 @@
+com/mycompany/businesscar/resources/JakartaEE10Resource.class
+com/mycompany/businesscar/models/Clients.class
+com/mycompany/businesscar/JakartaRestConfiguration.class
+com/mycompany/businesscar/models/TableClients.class
+com/mycompany/businesscar/controllers/ClientController.class
+com/mycompany/businesscar/models/HistoryClient.class
