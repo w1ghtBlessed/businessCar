@@ -153,44 +153,58 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <p:outputLabel 
                                 for="dateC" 
                                 value="Date"/>
-                            <p:inplace>
-                                <p:datePicker 
-                                    id="dateC" 
-                                    style="width:auto" 
-                                    required="true"
-                                    timeInput="true"
-                                    value="#{clientController.selectedClient.date}"/>
-                            </p:inplace>
+
+                            <p:datePicker 
+                                id="dateC" 
+                                showIcon="true"
+                                showOnFocus="false"
+                                style="width:auto" 
+                                required="true"
+                                timeInput="true"
+                                value="#{clientController.selectedClient.date}">
+
+                            </p:datePicker>
+
                             <p:outputLabel 
                                 for="nameContr1">Number contract</p:outputLabel>
                             <p:inputText 
                                 id="nameContr1"
                                 value="#{clientController.selectedClient.numberContract}"
-                                required="true"/>
+                                required="true">
+                                <p:ajax event="change"/>
+                            </p:inputText>
                             <p:outputLabel 
                                 for="lastName1">Last Name</p:outputLabel>
                             <p:inputText 
                                 id="lastName1"
                                 value="#{clientController.selectedClient.client.clientLastName}"
                                 required="true"/>
+                            <p:ajax event="change"/>
+
                             <p:outputLabel 
                                 for="name1">Name</p:outputLabel>
                             <p:inputText 
                                 id="name1"
                                 value="#{clientController.selectedClient.client.clientName}"
                                 required="true"/>
+                            <p:ajax event="change"/>
+
                             <p:outputLabel 
                                 for="passport1">Passport</p:outputLabel>
                             <p:inputText 
                                 id="passport1"
                                 value="#{clientController.selectedClient.client.clientPassport}"
                                 required="true"/>
+                            <p:ajax event="change"/>
+
                             <p:outputLabel 
                                 for="days1">Days</p:outputLabel>
                             <p:inputText 
                                 id="days1"
                                 value="#{clientController.selectedClient.days}"
                                 required="true"/>
+                            <p:ajax event="change"/>
+
                             <p:outputLabel 
                                 for="local1"
                                 style="text-align: right; padding-right: .5rem">
@@ -203,6 +217,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                     required="true">
                                     <f:selectItem itemLabel="Да" itemValue="Да"/>
                                     <f:selectItem itemLabel="Нет" itemValue="Нет"/>
+                                    <p:ajax event="change"/>
+
                                 </p:selectOneButton>
                             </h:panelGroup>
                         </h:panelGrid>
@@ -213,11 +229,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <p:commandButton
                         value="Save"
                         icon="pi pi-check"
-                        actionListener="#{clientController.saveClient}"
+                        action="#{clientController.saveClient}"
                         update="manage-client-content :form:dt-clientsHistory"
-                        process=":form:manage-client-content @this"
+                        process="@this"
                         oncomplete="PF('manageClientDialog').hide()"/>
-                    
+
                     <p:commandButton
                         value="Cancel"
                         icon="pi pi-times"

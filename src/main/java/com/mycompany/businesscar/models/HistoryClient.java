@@ -1,19 +1,22 @@
 package com.mycompany.businesscar.models;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.Instant;
 
 public class HistoryClient implements Serializable {
 
     private String id;
     private int numberContract;
     private Clients client;
-    private String date;
+    private Long date;
     private int days;
 
     public HistoryClient() {
+        this.date = Instant.now().toEpochMilli();
     }
 
-    public HistoryClient(String id,int numberContract, Clients client, String date,  int days) {
+    public HistoryClient(String id, int numberContract, Clients client, Long date, int days) {
         this.id = id;
         this.numberContract = numberContract;
         this.client = client;
@@ -36,13 +39,12 @@ public class HistoryClient implements Serializable {
     public void setNumberContract(int NumberContract) {
         this.numberContract = NumberContract;
     }
-    
 
-    public String getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

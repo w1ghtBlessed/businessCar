@@ -5,17 +5,11 @@ import com.mycompany.businesscar.models.HistoryClient;
 import com.mycompany.businesscar.models.TableClients;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.util.List;
-import java.util.UUID;
 import javax.sql.DataSource;
 import org.primefaces.PrimeFaces;
 
@@ -42,7 +36,6 @@ public class ClientController implements Serializable {
         model.setDataSource(dataSource);
         model.setSelectedClient(this.selectedClient);
         model.saveClient();
-        PrimeFaces.current().ajax().update("tableHistory:dt-clients-history");
     }
     public List<HistoryClient> getClients() {
         return clients;
